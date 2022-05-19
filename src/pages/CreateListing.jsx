@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef } from 'react'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import Spinner from '../components/Spinner'
 
 function CreateListing() {
-  const [geolocationEnabled, setGeoloactionEnabed] = useState(true)
+  // eslint-disable-next-line
+  const [geolocationEnabled, setGeoloactionEnabed] = useState(false) // Set true to enable Google GeocodeAPI
   const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     type: 'rent',
@@ -59,8 +61,48 @@ function CreateListing() {
     // eslint-disable-next-line
   }, [isMounted])
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true)
+    if (discountedPrice >= regularPrice) {
+      toast.error('Discounted price must be less than regular price')
+      setLoading(false)
+      return
+    }
+
+    if (images.length > 6) {
+      toast.error('You can only upload 6 images')
+      setLoading(false)
+      return
+    }
+
+    let geolocation = {}
+    let location
+
+    if (geolocationEnabled) {
+      const response = await fetch(
+        `https://maps.googleapis..com/maps/api/geocode/json?address=${address}&key=${process.env.REACT_APP_GEOCODE_API_KEY}`
+        // Add your GeocodeAPI key to .env.local
+      )
+
+      const data = await response.json()
+
+      geolocation.lat = data.results[0].geometry.location.lat ?? 0
+      geolocation.lng = data.results[0].geometry.location.lng ?? 0
+
+      location = data.status === 'ZERO_RESULTS' ? undefined : data.results[0]?.formatted_address
+
+      if (location === undefined || location.includes('undefined')) {
+        setLoading(false)
+        toast.error('Address not found or invalid')
+        return
+      }
+    } else {
+      geolocation.lat = latitude
+      geolocation.lng = longitude
+    }
+
+    setLoading(false)
   }
 
   const onMutate = (e) => {
