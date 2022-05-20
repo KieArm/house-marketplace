@@ -339,7 +339,7 @@ button {
 .swiperSlideText {
   color: #ffffff;
   position: absolute;
-  top: 70px;
+  top: 25px;
   left: 0;
   font-weight: 600;
   max-width: 90%;
@@ -352,11 +352,16 @@ button {
     font-size: 1.75rem;
   }
 }
+@media (max-width: 600px) {
+  .swiperSlideText {
+    font-size: 0.9rem;
+  }
+}
 
 .swiperSlidePrice {
   color: #000000;
   position: absolute;
-  top: 143px;
+  top: 75px;
   left: 11px;
   font-weight: 600;
   max-width: 90%;
@@ -366,7 +371,13 @@ button {
 }
 @media (min-width: 1024px) {
   .swiperSlidePrice {
+    top: 90px;
     font-size: 1.25rem;
+  }
+}
+@media (max-width: 600px) {
+  .swiperSlidePrice {
+    font-size: 0.9rem;
   }
 }
 
