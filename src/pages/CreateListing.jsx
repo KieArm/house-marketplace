@@ -10,7 +10,7 @@ import Spinner from '../components/Spinner'
 
 function CreateListing() {
   // eslint-disable-next-line
-  const [geolocationEnabled, setGeoloactionEnabed] = useState(false) // Set true to enable Google GeocodeAPI
+  const [geolocationEnabled, setGeolocationEnabled] = useState(false) // Set true to enable Geocoode API
   const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     type: 'rent',
@@ -85,14 +85,14 @@ function CreateListing() {
 
     if (geolocationEnabled) {
       const response = await fetch(
-        `https://maps.googleapis..com/maps/api/geocode/json?address=${address}&key=${process.env.REACT_APP_GEOCODE_API_KEY}`
-        // Add your GeocodeAPI key to .env.local
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.REACT_APP_GEOCODE_API_KEY}`
+        // Add API key to env if you want to use Geocode API. Disabled by default.
       )
 
       const data = await response.json()
 
-      geolocation.lat = data.results[0].geometry.location.lat ?? 0
-      geolocation.lng = data.results[0].geometry.location.lng ?? 0
+      geolocation.lat = data.results[0]?.geometry.location.lat ?? 0
+      geolocation.lng = data.results[0]?.geometry.location.lng ?? 0
 
       location = data.status === 'ZERO_RESULTS' ? undefined : data.results[0]?.formatted_address
 
@@ -225,7 +225,7 @@ function CreateListing() {
             </button>
           </div>
 
-          <label className='formLabel'>Name</label>
+          <label className='formLabel'>Name of listing</label>
           <input
             className='formInputName'
             type='text'
@@ -266,7 +266,7 @@ function CreateListing() {
             </div>
           </div>
 
-          <label className='formLabel'>Parking spot</label>
+          <label className='formLabel'>Parking</label>
           <div className='formButtons'>
             <button
               className={parking ? 'formButtonActive' : 'formButton'}
@@ -349,7 +349,7 @@ function CreateListing() {
             </div>
           )}
 
-          <label className='formLabel'>Offer</label>
+          <label className='formLabel'>Offer a discount</label>
           <div className='formButtons'>
             <button
               className={offer ? 'formButtonActive' : 'formButton'}
@@ -403,7 +403,7 @@ function CreateListing() {
           )}
 
           <label className='formLabel'>Images</label>
-          <p className='imagesInfo'>The first image will be the cover (max 6).</p>
+          <p className='imagesInfo'>The first image will be used as the cover. (Max 6 images)</p>
           <input
             className='formInputFile'
             type='file'
@@ -422,4 +422,5 @@ function CreateListing() {
     </div>
   )
 }
+
 export default CreateListing
