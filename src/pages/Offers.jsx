@@ -21,7 +21,7 @@ function Offers() {
           listingsRef,
           where('offer', '==', true),
           orderBy('timestamp', 'desc'),
-          limit(10)
+          limit(5)
         )
 
         // Execute query
@@ -61,7 +61,7 @@ function Offers() {
         where('offer', '==', true),
         orderBy('timestamp', 'desc'),
         startAfter(lastFetchedListing),
-        limit(10)
+        limit(5)
       )
 
       // Execute query
@@ -103,12 +103,9 @@ function Offers() {
               ))}
             </ul>
           </main>
-
-          <br />
-          <br />
-          {listings.length >= 10 && (
+          {lastFetchedListing && (
             <p className='loadMore' onClick={onFetchMoreListings}>
-              Load More
+              Show More
             </p>
           )}
         </>

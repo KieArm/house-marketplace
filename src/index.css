@@ -72,6 +72,21 @@ button {
   justify-content: center;
 }
 
+.cancelButton {
+  cursor: pointer;
+  background: #ff4800;
+  border-radius: 1rem;
+  padding: 0.85rem 2rem;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.25rem;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .removeIcon {
   cursor: pointer;
   position: absolute;
@@ -408,11 +423,13 @@ button {
 }
 
 .categoryListings {
+  margin: 0 auto;
   padding: 0;
 }
 
 .categoryListing {
   display: flex;
+  margin: 0 auto;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
@@ -643,8 +660,9 @@ button {
 
 .profileDetailsHeader {
   display: flex;
+  margin: 0 auto;
   justify-content: space-between;
-  max-width: 500px;
+  max-width: 95%;
 }
 
 .personalDetailsText {
@@ -662,7 +680,9 @@ button {
   border-radius: 1rem;
   padding: 1rem;
   box-shadow: rgba(0, 0, 0, 0.2);
-  max-width: 500px;
+  max-width: 100%;
+  margin: 0 auto;
+  justify-content: space-between;
 }
 
 .profileDetails {
@@ -691,6 +711,7 @@ button {
 .profileEmailActive {
   font-weight: 500;
 }
+
 .profileEmailActive {
   background-color: rgba(44, 44, 44, 0.1);
 }
@@ -702,13 +723,13 @@ button {
 .createListing {
   background-color: #ffffff;
   border-radius: 1rem;
-  padding: 0.25rem 1rem;
+  padding: 0;
   box-shadow: rgba(0, 0, 0, 0.2);
-  margin-top: 2rem;
+  margin: 2rem auto;
   font-weight: 600;
-  max-width: 500px;
+  max-width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -725,10 +746,13 @@ button {
   font-weight: 600;
   margin-top: 1rem;
   display: block;
+  text-align: center;
 }
 
 .formButtons {
   display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .formButton,
@@ -747,6 +771,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 .formButtonActive {
   background-color: #00cc66;
@@ -755,6 +780,16 @@ button {
 
 .flex {
   display: flex;
+}
+
+.formRooms {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.formLatLng {
+  justify-content: center;
 }
 
 .formInput,
@@ -766,8 +801,12 @@ button {
   outline: none;
   font-family: 'Montserrat', sans-serif;
 }
-.formInputSmall,
+.formInputSmall {
+  padding: 0.75rem 2rem;
+  text-align: center;
+}
 .formInputFile {
+  justify-self: center;
   margin-right: 3rem;
   padding: 0.9rem 0.7rem;
   text-align: center;
@@ -775,18 +814,17 @@ button {
 
 .formInputName {
   padding: 0.9rem 1rem;
-  width: 90%;
-  max-width: 326px;
+  width: 100%;
 }
 
 .formInputAddress {
   padding: 0.9rem 1rem;
-  width: 90%;
-  max-width: 326px;
+  width: 100%;
 }
 
 .formPriceDiv {
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -796,6 +834,7 @@ button {
 }
 
 .imagesInfo {
+  text-align: center;
   font-size: 0.9rem;
   opacity: 0.75;
 }
@@ -814,7 +853,7 @@ button {
 }
 
 .createListingButton {
-  margin-top: 5rem;
+  margin-top: 2rem;
 }
 
 .offers {
