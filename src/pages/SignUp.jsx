@@ -5,7 +5,7 @@ import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase
 import { setDoc, doc, serverTimestamp } from 'firebase/firestore'
 import { db } from '../firebase.config'
 import OAuth from '../components/OAuth'
-import { ReactComponent as ArrowRightIcon } from '../assets/svg/keyboardArrowRightIcon.svg'
+import ArrowRightIcon from '../assets/svg/keyboardArrowRightIcon.svg?react'
 import visibilityIcon from '../assets/svg/visibilityIcon.svg'
 
 function SignUp() {
