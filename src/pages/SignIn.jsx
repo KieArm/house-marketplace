@@ -1,43 +1,45 @@
-import { useState } from 'react'
-import { toast } from 'react-toastify'
-import { Link, useNavigate } from 'react-router-dom'
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
-import OAuth from '../components/OAuth'
-import ArrowRightIcon from '../assets/svg/keyboardArrowRightIcon.svg?react'
-import visibilityIcon from '../assets/svg/visibilityIcon.svg'
+import { useState } from 'react';
+import { toast } from 'react-toastify';
+import { Link, useNavigate } from 'react-router-dom';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import OAuth from '../components/OAuth';
+import ArrowRightIcon from '../assets/svg/keyboardArrowRightIcon.svg?react';
+import visibilityIcon from '../assets/svg/visibilityIcon.svg';
+import lockIcon from '../assets/svg/lockIcon.svg';
+import personIcon from '../assets/svg/personIcon.svg';
 
 function Signin() {
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
     password: '',
-  })
-  const { email, password } = formData
+  });
+  const { email, password } = formData;
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.id]: e.target.value,
-    }))
-  }
+    }));
+  };
 
   const onSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     try {
-      const auth = getAuth()
+      const auth = getAuth();
 
-      const userCredential = await signInWithEmailAndPassword(auth, email, password)
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
 
       if (userCredential.user) {
-        navigate('/')
+        navigate('/');
       }
     } catch (error) {
-      toast.error('Invalid email or password')
+      toast.error('Invalid email or password');
     }
-  }
+  };
 
   return (
     <>
@@ -48,15 +50,12 @@ function Signin() {
 
         <main>
           <form onSubmit={onSubmit}>
-            <input
-              type='email'
-              className='emailInput'
-              placeholder='Email'
-              id='email'
-              value={email}
-              onChange={onChange}
-            />
+            <div className='emailInputDiv'>
+              <img src={personIcon} style={{ position: 'absolute', top: '12px', left: '15px' }} />
+              <input type='email' className='emailInput' placeholder='Email' id='email' value={email} onChange={onChange} />
+            </div>
             <div className='passwordInputDiv'>
+              <img src={lockIcon} style={{ position: 'absolute', top: '12px', left: '15px' }} />
               <input
                 type={showPassword ? 'text' : 'password'}
                 className='passwordInput'
@@ -66,12 +65,7 @@ function Signin() {
                 onChange={onChange}
               />
 
-              <img
-                src={visibilityIcon}
-                alt='show password'
-                className='showPassword'
-                onClick={() => setShowPassword((prevState) => !prevState)}
-              />
+              <img src={visibilityIcon} alt='show password' className='showPassword' onClick={() => setShowPassword((prevState) => !prevState)} />
             </div>
 
             <Link to='/forgot-password' className='forgotPasswordLink'>
@@ -94,7 +88,7 @@ function Signin() {
         </main>
       </div>
     </>
-  )
+  );
 }
 
-export default Signin
+export default Signin;
