@@ -723,13 +723,13 @@ button {
 }
 
 .createListing {
+  padding: 0px 10px;
   background-color: #ffffff;
   border-radius: 1rem;
-  padding: 0;
   box-shadow: rgba(0, 0, 0, 0.2);
   margin: 2rem auto;
   font-weight: 600;
-  max-width: 100%;
+  max-width: fit-content;
   display: flex;
   justify-content: center;
   align-items: center;

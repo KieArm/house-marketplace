@@ -1,5 +1,5 @@
-import { initializeApp } from 'firebase/app'
-import { getFirestore } from 'firebase/firestore'
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -10,8 +10,8 @@ const firebaseConfig = {
   messagingSenderId: '1035271329635',
   appId: '1:1035271329635:web:34d30944d37b0386ada556',
   measurementId: 'G-PXGNZPV8V0',
-}
+};
 
 // Initialize Firebase
-initializeApp(firebaseConfig)
-export const db = getFirestore()
+initializeApp(firebaseConfig);
+export const db = getFirestore();

@@ -1,25 +1,25 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { getAuth, sendPasswordResetEmail } from 'firebase/auth'
-import { toast } from 'react-toastify'
-import ArrowRightIcon from '../assets/svg/keyboardArrowRightIcon.svg?react'
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
+import { toast } from 'react-toastify';
+import ArrowRightIcon from '../assets/svg/keyboardArrowRightIcon.svg?react';
 
 function ForgotPassword() {
-  const [email, setEmail] = useState('')
+  const [email, setEmail] = useState('');
 
   const onChange = (e) => {
-    setEmail(e.target.value)
-  }
+    setEmail(e.target.value);
+  };
   const onSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      const auth = getAuth()
-      await sendPasswordResetEmail(auth, email)
-      toast.success('Reset password email has been sent')
+      const auth = getAuth();
+      await sendPasswordResetEmail(auth, email);
+      toast.success('Reset password email has been sent');
     } catch (error) {
-      toast.error('Could not send reset password email')
+      toast.error('Could not send reset password email');
     }
-  }
+  };
 
   return (
     <div className='pageContainer'>
@@ -28,14 +28,7 @@ function ForgotPassword() {
       </header>
       <main>
         <form onSubmit={onSubmit}>
-          <input
-            type='email'
-            className='emailInput'
-            placeholder='Email'
-            id='email'
-            value={email}
-            onChange={onChange}
-          />
+          <input type='email' className='emailInput' placeholder='Email' id='email' value={email} onChange={onChange} />
           <Link className='forgotPasswordLink' to='/sign-in'>
             Sign In
           </Link>
@@ -48,6 +41,6 @@ function ForgotPassword() {
         </form>
       </main>
     </div>
-  )
+  );
 }
-export default ForgotPassword
+export default ForgotPassword;
