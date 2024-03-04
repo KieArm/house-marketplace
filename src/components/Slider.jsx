@@ -54,17 +54,11 @@ function Slider() {
         <Swiper modules={[Navigation, Pagination, A11y]} slidesPerView={1} navigation={true} a11y={true} pagination={{ clickable: true }}>
           {listings.map(({ data, id }) => (
             <SwiperSlide key={id} onClick={() => navigate(`/category/${data.type}/${id}`)}>
-              <div>
-                <img
-                  src={data.imageUrls}
-                  alt='{listing.title}'
-                  style={{ width: '100%', height: '85vh', objectFit: 'cover', objectPosition: '0 0' }}
-                />
-                <p className='swiperSlideText'>{data.name}</p>
-                <p className='swiperSlidePrice'>
-                  ${data.discountedPrice ?? data.regularPrice} {data.type === 'rent' && '/ month'}
-                </p>
-              </div>
+              <img src={data.imageUrls} alt='{listing.title}' style={{ width: '100%', height: 'auto' }} />
+              <p className='swiperSlideText'>{data.name}</p>
+              <p className='swiperSlidePrice'>
+                ${data.discountedPrice ?? data.regularPrice} {data.type === 'rent' && '/ month'}
+              </p>
             </SwiperSlide>
           ))}
         </Swiper>
