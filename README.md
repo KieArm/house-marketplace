@@ -1,4 +1,12 @@
-# Getting Started
+# House Marketplace Demo
+
+Propert sale/rental demo app with React, router and Firebase with Google Auth.
+
+[Live Demo](https://house-marketplace-kiearm.vercel.app/)
+
+## Preview
+
+![Preview](https://kierana.dev/assets/proj_house-marketplace.webp)
 
 ## Available Scripts
 
