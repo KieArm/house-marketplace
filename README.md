@@ -1,6 +1,6 @@
 # House Marketplace Demo
 
-Propert sale/rental demo app with React, router and Firebase with Google Auth.
+Property for sale or rent marketplace demo built with React, Router and Firebase with Google Auth.
 
 [Live Demo](https://house-marketplace-kiearm.vercel.app/)
 
