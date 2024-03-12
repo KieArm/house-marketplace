@@ -52,7 +52,14 @@ function Signin() {
           <form onSubmit={onSubmit}>
             <div className='emailInputDiv'>
               <img src={personIcon} style={{ position: 'absolute', top: '12px', left: '15px' }} />
-              <input type='email' className='emailInput' placeholder='Email' id='email' value={email} onChange={onChange} />
+              <input
+                type='email'
+                className='emailInput'
+                placeholder='Email'
+                id='email'
+                value={email}
+                onChange={onChange}
+              />
             </div>
             <div className='passwordInputDiv'>
               <img src={lockIcon} style={{ position: 'absolute', top: '12px', left: '15px' }} />
@@ -65,7 +72,12 @@ function Signin() {
                 onChange={onChange}
               />
 
-              <img src={visibilityIcon} alt='show password' className='showPassword' onClick={() => setShowPassword((prevState) => !prevState)} />
+              <img
+                src={visibilityIcon}
+                alt='show password'
+                className='showPassword'
+                onClick={() => setShowPassword((prevState) => !prevState)}
+              />
             </div>
 
             <Link to='/forgot-password' className='forgotPasswordLink'>

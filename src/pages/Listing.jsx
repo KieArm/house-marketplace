@@ -43,7 +43,13 @@ function Listing() {
 
   return (
     <main>
-      <Swiper modules={[Navigation, Pagination, A11y]} slidesPerView={1} navigation={true} a11y={true} pagination={{ clickable: true }}>
+      <Swiper
+        modules={[Navigation, Pagination, A11y]}
+        slidesPerView={1}
+        navigation={true}
+        a11y={true}
+        pagination={{ clickable: true }}
+      >
         {listing.imageUrls.map((image, index) => (
           <SwiperSlide key={index}>
             <img style={{ width: '100%', height: 'auto' }} src={image} alt='{listing.title}' />

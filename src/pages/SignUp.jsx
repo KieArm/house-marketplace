@@ -55,10 +55,6 @@ function SignUp() {
   return (
     <>
       <div className='pageContainer'>
-        <header>
-          <p className='pageHeader'>Welcome Back</p>
-        </header>
-
         <main>
           <form onSubmit={onSubmit}>
             <div className='formInputDiv'>
@@ -67,7 +63,14 @@ function SignUp() {
             </div>
             <div className='formInputDiv'>
               <img src={personIcon} style={{ position: 'absolute', top: '12px', left: '15px' }} />
-              <input type='email' className='emailInput' placeholder='Email' id='email' value={email} onChange={onChange} />
+              <input
+                type='email'
+                className='emailInput'
+                placeholder='Email'
+                id='email'
+                value={email}
+                onChange={onChange}
+              />
             </div>
             <div className='passwordInputDiv'>
               <img src={lockIcon} style={{ position: 'absolute', top: '12px', left: '15px' }} />
@@ -80,7 +83,12 @@ function SignUp() {
                 onChange={onChange}
               />
 
-              <img src={visibilityIcon} alt='show password' className='showPassword' onClick={() => setShowPassword((prevState) => !prevState)} />
+              <img
+                src={visibilityIcon}
+                alt='show password'
+                className='showPassword'
+                onClick={() => setShowPassword((prevState) => !prevState)}
+              />
             </div>
 
             <div className='signUpBar'>

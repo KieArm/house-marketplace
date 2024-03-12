@@ -28,8 +28,21 @@ function CreateListing() {
     longitude: 0,
   });
 
-  const { type, name, bedrooms, bathrooms, parking, furnished, address, offer, regularPrice, discountedPrice, images, latitude, longitude } =
-    formData;
+  const {
+    type,
+    name,
+    bedrooms,
+    bathrooms,
+    parking,
+    furnished,
+    address,
+    offer,
+    regularPrice,
+    discountedPrice,
+    images,
+    latitude,
+    longitude,
+  } = formData;
 
   const auth = getAuth();
   const navigate = useNavigate();
@@ -192,25 +205,64 @@ function CreateListing() {
         <form onSubmit={onSubmit}>
           <label className='formLabel'>Sell / Rent</label>
           <div className='formButtons'>
-            <button type='button' className={type === 'sale' ? 'formButtonActive' : 'formButton'} id='type' value='sale' onClick={onMutate}>
+            <button
+              type='button'
+              className={type === 'sale' ? 'formButtonActive' : 'formButton'}
+              id='type'
+              value='sale'
+              onClick={onMutate}
+            >
               Sell
             </button>
-            <button type='button' className={type === 'rent' ? 'formButtonActive' : 'formButton'} id='type' value='rent' onClick={onMutate}>
+            <button
+              type='button'
+              className={type === 'rent' ? 'formButtonActive' : 'formButton'}
+              id='type'
+              value='rent'
+              onClick={onMutate}
+            >
               Rent
             </button>
           </div>
 
           <label className='formLabel'>Name of listing</label>
-          <input className='formInputName' type='text' id='name' value={name} onChange={onMutate} maxLength='32' minLength='10' required />
+          <input
+            className='formInputName'
+            type='text'
+            id='name'
+            value={name}
+            onChange={onMutate}
+            maxLength='32'
+            minLength='10'
+            required
+          />
 
           <div className='formRooms flex'>
             <div>
               <label className='formLabel'>Bedrooms</label>
-              <input className='formInputSmall' type='number' id='bedrooms' value={bedrooms} onChange={onMutate} min='1' max='50' required />
+              <input
+                className='formInputSmall'
+                type='number'
+                id='bedrooms'
+                value={bedrooms}
+                onChange={onMutate}
+                min='1'
+                max='50'
+                required
+              />
             </div>
             <div>
               <label className='formLabel'>Bathrooms</label>
-              <input className='formInputSmall' type='number' id='bathrooms' value={bathrooms} onChange={onMutate} min='1' max='50' required />
+              <input
+                className='formInputSmall'
+                type='number'
+                id='bathrooms'
+                value={bathrooms}
+                onChange={onMutate}
+                min='1'
+                max='50'
+                required
+              />
             </div>
           </div>
 
@@ -240,7 +292,13 @@ function CreateListing() {
 
           <label className='formLabel'>Furnished</label>
           <div className='formButtons'>
-            <button className={furnished ? 'formButtonActive' : 'formButton'} type='button' id='furnished' value={true} onClick={onMutate}>
+            <button
+              className={furnished ? 'formButtonActive' : 'formButton'}
+              type='button'
+              id='furnished'
+              value={true}
+              onClick={onMutate}
+            >
               Yes
             </button>
             <button
@@ -255,22 +313,49 @@ function CreateListing() {
           </div>
 
           <label className='formLabel'>Address</label>
-          <textarea className='formInputAddress' type='text' id='address' value={address} onChange={onMutate} required />
+          <textarea
+            className='formInputAddress'
+            type='text'
+            id='address'
+            value={address}
+            onChange={onMutate}
+            required
+          />
 
           {!geolocationEnabled && (
             <div className='formLatLng flex'>
               <div>
                 <label className='formLabel'>Latitude</label>
-                <input className='formInputSmall' type='number' id='latitude' value={latitude} onChange={onMutate} required />
+                <input
+                  className='formInputSmall'
+                  type='number'
+                  id='latitude'
+                  value={latitude}
+                  onChange={onMutate}
+                  required
+                />
                 <label className='formLabel'>Longitude</label>
-                <input className='formInputSmall' type='number' id='longitude' value={longitude} onChange={onMutate} required />
+                <input
+                  className='formInputSmall'
+                  type='number'
+                  id='longitude'
+                  value={longitude}
+                  onChange={onMutate}
+                  required
+                />
               </div>
             </div>
           )}
 
           <label className='formLabel'>Offer a discount</label>
           <div className='formButtons'>
-            <button className={offer ? 'formButtonActive' : 'formButton'} type='button' id='offer' value={true} onClick={onMutate}>
+            <button
+              className={offer ? 'formButtonActive' : 'formButton'}
+              type='button'
+              id='offer'
+              value={true}
+              onClick={onMutate}
+            >
               Yes
             </button>
             <button
@@ -318,7 +403,16 @@ function CreateListing() {
 
           <label className='formLabel'>Images</label>
           <p className='imagesInfo'>The first image will be used as the cover. (Max 6 images)</p>
-          <input className='formInputFile' type='file' id='images' onChange={onMutate} max='6' accept='.jpg,.png,.jpeg' multiple required />
+          <input
+            className='formInputFile'
+            type='file'
+            id='images'
+            onChange={onMutate}
+            max='6'
+            accept='.jpg,.png,.jpeg'
+            multiple
+            required
+          />
           <button type='submit' className='primaryButton createListingButton'>
             Create Listing
           </button>

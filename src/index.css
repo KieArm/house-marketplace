@@ -33,7 +33,7 @@ button {
   box-shadow: rgba(0, 0, 0, 0.11);
   border: none;
   background: #ffffff;
-  border-radius: 3rem;
+  border-radius: 0.75rem;
   height: 3rem;
   width: 100%;
   outline: none;
@@ -150,8 +150,10 @@ button {
 }
 
 .pageHeader {
+  margin: 1rem 0;
   font-size: 2rem;
   font-weight: 800;
+  text-align: center;
 }
 
 .navbar {
@@ -159,7 +161,7 @@ button {
   left: 0;
   bottom: 0;
   right: 0;
-  height: 85px;
+  height: 75px;
   background-color: #ffffff;
   z-index: 1000;
   display: flex;
@@ -169,7 +171,7 @@ button {
 
 .navbarNav {
   width: 100%;
-  margin-top: 0.75rem;
+  margin: 0;
   overflow-y: hidden;
 }
 
@@ -190,7 +192,7 @@ button {
 
 .navbarListItemName,
 .navbarListItemNameActive {
-  margin-top: 0.25rem;
+  margin: 0;
   font-size: 14px;
   font-weight: 600;
   color: #8f8f8f;
@@ -200,13 +202,11 @@ button {
 }
 
 .nameInput {
-  margin-bottom: 2rem;
-  /* background: url('./assets/svg/badgeIcon.svg') #ffffff 2.5% center no-repeat; */
+  margin-bottom: 1rem;
 }
 
 .emailInput {
-  margin-bottom: 2rem;
-  /* background: url('./assets/svg/personIcon.svg') #ffffff 2.5% center no-repeat; */
+  margin-bottom: 1rem;
 }
 
 .passwordInputDiv,
@@ -216,8 +216,7 @@ button {
 }
 
 .passwordInput {
-  margin-bottom: 2rem;
-  /* background: url('./assets/svg/lockIcon.svg') #ffffff 2.5% center no-repeat; */
+  margin-bottom: 1rem;
 }
 
 .showPassword {
@@ -232,14 +231,15 @@ button {
   cursor: pointer;
   color: #00cc66;
   font-weight: 600;
-  text-align: right;
+  text-align: center;
 }
 
 .signInBar,
 .signUpBar {
-  margin-top: 3rem;
+  margin: 0;
   display: flex;
-  justify-content: space-between;
+  gap: 1rem;
+  justify-content: center;
   align-items: center;
   position: inherit;
 }
@@ -281,7 +281,7 @@ button {
 }
 
 .socialLogin {
-  margin-top: 4rem;
+  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -293,7 +293,7 @@ button {
   justify-content: center;
   align-items: center;
   padding: 0.75rem;
-  margin: 1.5rem;
+  margin: 0.5rem;
   width: 3rem;
   height: 3rem;
   background-color: #ffffff;
@@ -306,7 +306,7 @@ button {
 }
 
 .registerLink {
-  margin-top: 4rem;
+  margin-top: 3rem;
   color: #00cc66;
   font-weight: 600;
   text-align: center;
@@ -330,7 +330,7 @@ button {
 }
 
 .exploreCategoryHeading {
-  margin-top: 3rem;
+  margin: 1rem 0;
 }
 
 .swiper-container {
@@ -416,12 +416,13 @@ button {
 }
 
 .exploreCategoryName {
+  margin: 0;
   font-weight: 500;
-  text-align: left;
+  text-align: center;
 }
 
 .category {
-  margin-bottom: 10rem;
+  margin-bottom: 15rem;
 }
 
 .categoryListings {
